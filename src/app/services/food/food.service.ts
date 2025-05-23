@@ -17,7 +17,7 @@ export class FoodService {
         cookTime:'10-20',      
         favorite:false,
         origin:['italy'],
-        stars:4.0,
+        stars:5.0,
         imageUrl:'images/BURGER.jpg',
         tags:['FastFood', 'Lunch']
       },
@@ -28,33 +28,33 @@ export class FoodService {
         cookTime:'10-20',      
         favorite:false,
         origin:['France'],
-        stars:4.0,
+        stars:3.0,
         imageUrl:'images/FRENCH FRIES.jpg',
         tags:['FastFood', 'Lunch']
       }
       ,
       {
         id:3,
-        name:'Cake',
+        name:'Soup',
         price: 400,
         cookTime:'20-25',      
-        favorite:false,
+        favorite:true,
         origin:['italy'],
         stars:4.0,
-        imageUrl:'images/CAKE.jpg',
-        tags:['Sweet', 'Celebration']
+        imageUrl:'images/SOUP.jpg',
+        tags:['Spicy','Soup', 'Celebration']
       }
       ,
       {
         id:4,
-        name:'Ice Cream',
+        name:'Chicken Ghee Roast',
         price: 300,
         cookTime:'15-20',      
         favorite:false,
         origin:['italy'],
         stars:4.0,
-        imageUrl:'images/ICE CREAM.jpg',
-        tags:['Cold', 'Ice Cream']
+        imageUrl:'images/CHICKEN GHEE ROAST.jpg',
+        tags:['Nov Veg', 'Chicken']
       }
       ,
       {
@@ -62,9 +62,9 @@ export class FoodService {
         name:'Veg Pizza',
         price: 300,
         cookTime:'20-25',      
-        favorite:false,
+        favorite:true,
         origin:['italy'],
-        stars:4.0,
+        stars:2.0,
         imageUrl:'images/PIZZA.jpg',
         tags:['Pizza', 'Fast Food','Lunch']
       }

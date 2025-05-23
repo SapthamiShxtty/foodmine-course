@@ -19,4 +19,9 @@ export class HomeComponent implements OnInit {
       this.foods = this.foodService.getAll();
   }
 
+  getStarsArray(stars: number): number[] {
+    return Array(Math.round(stars)).fill(0);
+  }
+
+
 }

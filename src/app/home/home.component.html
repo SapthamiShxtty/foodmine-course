@@ -4,8 +4,23 @@
             <img src="{{food.imageUrl}}" alt="Food item">
             <div class="content">
                 <div class="name">{{food.name}}</div>
-                <span class="favorite {{food.favorite?'':'not'}}">❤️</span>
-                
+                <span class="favorite {{food.favorite?'':'not'}}">
+                    ❤
+                </span>
+                <div class="stars">
+                    <span *ngFor="let star of getStarsArray(food.stars)">⭐</span>
+                </div>
+                <div class="product-item-footer">
+                    <div class="origins">
+                        <span *ngFor="let origin of food.origin">{{origin}}</span>
+                    </div>
+                    <div class="cook-time">
+                        <span>🕒</span>{{food.cookTime}}
+                    </div>
+                </div>
+                <div class="price">
+                    <span>₹{{food.price}}</span>
+                </div>
             </div>
         </a>
     </li>
