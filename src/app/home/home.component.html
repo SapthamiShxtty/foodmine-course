@@ -1,4 +1,5 @@
 <app-search></app-search>
+<app-tags></app-tags>
 <ul>
     <li *ngFor="let food of foods">
         <a>
@@ -13,7 +14,7 @@
                 </div>
                 <div class="product-item-footer">
                     <div class="origins">
-                        <span *ngFor="let origin of food.origin">{{origin}}</span>
+                        <span *ngFor="let origin of food.origins">{{origin}}</span>
                     </div>
                     <div class="cook-time">
                         <span>🕒</span>{{food.cookTime}}

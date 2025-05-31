@@ -1,73 +1,109 @@
 import { Injectable } from '@angular/core';
 import { Food } from '../../shared/models/Food';
-
+import { Tag } from '../../shared/models/Tag';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FoodService {
-
   constructor() { }
 
-  getAll(): Food[]{
-    return[
+  getFoodById(id: number): Food{
+    return this.getAll().find(food => food.id == id)!;
+  }
+  
+  getAllFoodsBySearchTerm(searchTerm:string) :Food[]{
+    return  this.getAll().filter(food =>
+      food.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  }
+
+  getAllTags(): Tag[] {
+    return [
+      { name: 'All', count: 14 },
+      { name: 'FastFood', count: 4 },
+      { name: 'Pizza', count: 2 },
+      { name: 'Lunch', count: 3 },
+      { name: 'SlowFood', count: 2 },
+      { name: 'Hamburger', count: 1 },
+      { name: 'Fry', count: 1 },
+      { name: 'Soup', count: 1 },
+    ];
+  }
+
+  getAllFoodsByTag(tag: string): Food[] {
+    return tag.toLowerCase() === "all"
+      ? this.getAll()
+      : this.getAll().filter(food =>
+          food.tags?.some(t => t.toLowerCase() === tag.toLowerCase())
+        );
+  }
+  getAll(): Food[] {
+    return [
       {
-        id:1,
-        name:'Burger',
-        price: 300,
-        cookTime:'10-20',      
-        favorite:false,
-        origin:['italy'],
-        stars:5.0,
-        imageUrl:'images/BURGER.jpg',
-        tags:['FastFood', 'Lunch']
+        id: 1,
+        name: 'Pizza Pepperoni',
+        cookTime: '10-20',
+        price: 10,
+        favorite: false,
+        origins: ['italy'],
+        stars: 4.5,
+        imageUrl: 'images/food-1.jpg',
+        tags: ['FastFood', 'Pizza', 'Lunch'],
       },
       {
-        id:2,
-        name:'French Fries',
-        price: 250,
-        cookTime:'10-20',      
-        favorite:false,
-        origin:['France'],
-        stars:3.0,
-        imageUrl:'images/FRENCH FRIES.jpg',
-        tags:['FastFood', 'Lunch']
-      }
-      ,
+        id: 2,
+        name: 'Meatball',
+        price: 20,
+        cookTime: '20-30',
+        favorite: true,
+        origins: ['persia', 'middle east', 'china'],
+        stars: 4.7,
+        imageUrl: 'images/food-2.jpg',
+        tags: ['SlowFood', 'Lunch'],
+      },
       {
-        id:3,
-        name:'Soup',
-        price: 400,
-        cookTime:'20-25',      
-        favorite:true,
-        origin:['italy'],
-        stars:4.0,
-        imageUrl:'images/SOUP.jpg',
-        tags:['Spicy','Soup', 'Celebration']
-      }
-      ,
+        id: 3,
+        name: 'Hamburger',
+        price: 5,
+        cookTime: '10-15',
+        favorite: false,
+        origins: ['germany', 'us'],
+        stars: 3.5,
+        imageUrl: 'images/food-3.jpg',
+        tags: ['FastFood', 'Hamburger'],
+      },
       {
-        id:4,
-        name:'Chicken Ghee Roast',
-        price: 300,
-        cookTime:'15-20',      
-        favorite:false,
-        origin:['italy'],
-        stars:4.0,
-        imageUrl:'images/CHICKEN GHEE ROAST.jpg',
-        tags:['Nov Veg', 'Chicken']
-      }
-      ,
+        id: 4,
+        name: 'Fried Potatoes',
+        price: 2,
+        cookTime: '15-20',
+        favorite: true,
+        origins: ['belgium', 'france'],
+        stars: 3.3,
+        imageUrl: 'images/food-4.jpg',
+        tags: ['FastFood', 'Fry'],
+      },
       {
-        id:5,
-        name:'Veg Pizza',
-        price: 300,
-        cookTime:'20-25',      
-        favorite:true,
-        origin:['italy'],
-        stars:2.0,
-        imageUrl:'images/PIZZA.jpg',
-        tags:['Pizza', 'Fast Food','Lunch']
-      }
-    ]
+        id: 5,
+        name: 'Chicken Soup',
+        price: 11,
+        cookTime: '40-50',
+        favorite: false,
+        origins: ['india', 'asia'],
+        stars: 3.0,
+        imageUrl: 'images/food-5.jpg',
+        tags: ['SlowFood', 'Soup'],
+      },
+      {
+        id: 6,
+        name: 'Vegetables Pizza',
+        price: 9,
+        cookTime: '40-50',
+        favorite: false,
+        origins: ['italy'],
+        stars: 4.0,
+        imageUrl: 'images/food-6.jpg',
+        tags: ['FastFood', 'Pizza', 'Lunch'],
+      },
+    ];
   }
 }
